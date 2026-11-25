@@ -1,5 +1,7 @@
 # VisMod — Visual-Modular Programming
 
+> *"Caesar's wife must be above suspicion."*
+>
 > Make AI-generated and complex application logic transparent, modular, and visually auditable directly inside your app.
 
 ---

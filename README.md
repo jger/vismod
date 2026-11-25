@@ -68,7 +68,7 @@ vismod/
 ├── spec/                   # Canonical *.vismod.yaml specification, JSON Schema & conformance tests
 │   ├── SPEC.md
 │   ├── schema/
-│   │   └── vismod.v1.schema.json
+│   │   └── vismod-0.1.schema.json
 │   └── conformance/
 ├── examples/               # Shared example *.vismod.yaml flows
 ├── packages/               # Language & framework implementations
@@ -99,7 +99,7 @@ vismod/
 ## Documentation
 
 - [Specification (`spec/SPEC.md`)](spec/SPEC.md)
-- [JSON Schema (`spec/schema/vismod.v1.schema.json`)](spec/schema/vismod.v1.schema.json)
+- [JSON Schema (`spec/schema/vismod-0.1.schema.json`)](spec/schema/vismod-0.1.schema.json)
 - [Architecture (`docs/architecture.md`)](docs/architecture.md)
 - [AI Agent Guidelines (`docs/ai-agent-guidelines.md`)](docs/ai-agent-guidelines.md)
 - [Implementations (`packages/README.md`)](packages/README.md)

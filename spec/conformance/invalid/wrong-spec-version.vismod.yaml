@@ -1,0 +1,8 @@
+# expect: '0.1' was expected
+vismod: "9.9"
+id: wrong-spec-version
+name: Wrong Spec Version
+entry: done
+steps:
+  - id: done
+    type: end

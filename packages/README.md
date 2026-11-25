@@ -9,7 +9,7 @@ Each language or framework implementation lives in its own isolated directory un
 
 ## Checklist for Adding a New Implementation
 
-1. Parse `*.vismod.yaml` and validate against `spec/schema/vismod.v1.schema.json`.
+1. Parse `*.vismod.yaml` and validate against `spec/schema/vismod-0.1.schema.json`.
 2. Pass all cases in `spec/conformance/cases/`.
 3. Support the `visibility` attribute (`public`, `admin`, `internal`) when exposing flows to UI viewers.
 4. Add a `README.md` with setup, usage, and test commands.

@@ -24,10 +24,9 @@ steps:
     label: Subscription Tier
     handler: getSubscriptionTier
     branches:
-      free: check_usage_limits
       pro: grant_full_access
       enterprise: trigger_sso
-    default: check_usage_limits
+    default: check_usage_limits   # free tier and any unknown tier
 
   - id: check_usage_limits
     type: decision

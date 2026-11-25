@@ -1,0 +1,14 @@
+# expect: is not a string
+vismod: "0.1"
+id: unquoted-booleans
+name: Unquoted Boolean Keys
+entry: decide
+steps:
+  - id: decide
+    type: decision
+    handler: isOk
+    branches:
+      true: done
+      false: done
+  - id: done
+    type: end

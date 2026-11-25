@@ -1,0 +1,8 @@
+# expect: does not match
+vismod: "0.1"
+id: uppercase-step-id
+name: Uppercase Step ID
+entry: StartStep
+steps:
+  - id: StartStep
+    type: end

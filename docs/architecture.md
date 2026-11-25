@@ -13,7 +13,7 @@ flowchart LR
 
 ### 1. Spec Layer (`*.vismod.yaml`)
 - Declarative YAML files checked directly into your application repository.
-- Validated against `spec/schema/vismod.v1.schema.json`.
+- Validated against `spec/schema/vismod-0.1.schema.json`.
 - Easy for both humans and AI coding agents to read, diff in pull requests, and reason about deterministically.
 
 ### 2. Runtime Layer (Modular Code Contract)

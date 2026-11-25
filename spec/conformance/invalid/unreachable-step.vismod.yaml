@@ -1,0 +1,10 @@
+# expect: unreachable step
+vismod: "0.1"
+id: unreachable-step
+name: Unreachable Step
+entry: start
+steps:
+  - id: start
+    type: end
+  - id: orphan
+    type: end

@@ -13,7 +13,7 @@ Use these guidelines in your repository's `AGENTS.md`, `CLAUDE.md`, or `.cursorr
    - Decision handlers should return a deterministic branch key (e.g., `"true"` / `"false"` or an explicit enum string matching `branches`).
 3. **Never let code and YAML drift.**
    - Do not bypass a `*.vismod.yaml` flow with ad-hoc conditionals outside the flow.
-   - Validate every modified `*.vismod.yaml` against `spec/schema/vismod.v1.schema.json`.
+   - Validate every modified `*.vismod.yaml` against `spec/schema/vismod-0.1.schema.json`.
 4. **Set appropriate `visibility`.**
    - Use `visibility: admin` (default) for internal business logic and `visibility: public` only when the flow is safe and intended for end users to inspect.
 5. **Keep step IDs and descriptions human-readable.**

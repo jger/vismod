@@ -1,0 +1,9 @@
+# expect: False schema does not allow
+vismod: "0.1"
+id: end-with-default
+name: End With Forbidden Default
+entry: done
+steps:
+  - id: done
+    type: end
+    default: done

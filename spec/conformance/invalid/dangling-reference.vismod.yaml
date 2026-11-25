@@ -1,0 +1,12 @@
+# expect: not found
+vismod: "0.1"
+id: dangling-reference
+name: Dangling Next Reference
+entry: start
+steps:
+  - id: start
+    type: action
+    handler: doWork
+    next: nonexistent_step
+  - id: done
+    type: end

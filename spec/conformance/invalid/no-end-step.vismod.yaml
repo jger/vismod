@@ -1,0 +1,10 @@
+# expect: no end step
+vismod: "0.1"
+id: no-end-step
+name: Self Loop Without End
+entry: loop
+steps:
+  - id: loop
+    type: action
+    handler: tick
+    next: loop

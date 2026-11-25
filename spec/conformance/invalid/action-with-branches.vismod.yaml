@@ -1,0 +1,14 @@
+# expect: False schema does not allow
+vismod: "0.1"
+id: action-with-branches
+name: Action With Forbidden Branches
+entry: step_a
+steps:
+  - id: step_a
+    type: action
+    handler: doWork
+    next: done
+    branches:
+      ok: done
+  - id: done
+    type: end

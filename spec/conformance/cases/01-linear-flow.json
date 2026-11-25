@@ -1,0 +1,35 @@
+{
+  "name": "Linear action flow to end",
+  "flow": {
+    "vismod": "0.1",
+    "id": "linear-flow",
+    "name": "Linear Flow",
+    "entry": "step_one",
+    "steps": [
+      {
+        "id": "step_one",
+        "type": "action",
+        "handler": "normalizeInput",
+        "next": "step_two"
+      },
+      {
+        "id": "step_two",
+        "type": "end",
+        "handler": "finalize"
+      }
+    ]
+  },
+  "initialContext": {
+    "raw": "  hello  "
+  },
+  "mockHandlers": {
+    "normalizeInput": { "normalized": "hello" },
+    "finalize": { "done": true }
+  },
+  "expectedTrace": ["step_one", "step_two"],
+  "expectedContext": {
+    "raw": "  hello  ",
+    "normalized": "hello",
+    "done": true
+  }
+}

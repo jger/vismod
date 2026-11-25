@@ -1,0 +1,50 @@
+{
+  "name": "Branching decision routes to matching branch",
+  "flow": {
+    "vismod": "0.1",
+    "id": "branching-decision",
+    "name": "Branching Decision",
+    "entry": "check_tier",
+    "steps": [
+      {
+        "id": "check_tier",
+        "type": "decision",
+        "handler": "getSubscriptionTier",
+        "branches": {
+          "pro": "grant_pro",
+          "free": "grant_free"
+        }
+      },
+      {
+        "id": "grant_pro",
+        "type": "action",
+        "handler": "enableProFeatures",
+        "next": "finish"
+      },
+      {
+        "id": "grant_free",
+        "type": "action",
+        "handler": "enableFreeFeatures",
+        "next": "finish"
+      },
+      {
+        "id": "finish",
+        "type": "end"
+      }
+    ]
+  },
+  "initialContext": {
+    "userId": "u_123"
+  },
+  "mockHandlers": {
+    "getSubscriptionTier": "pro",
+    "enableProFeatures": { "tier": "pro", "unlimited": true },
+    "enableFreeFeatures": { "tier": "free", "unlimited": false }
+  },
+  "expectedTrace": ["check_tier", "grant_pro", "finish"],
+  "expectedContext": {
+    "userId": "u_123",
+    "tier": "pro",
+    "unlimited": true
+  }
+}

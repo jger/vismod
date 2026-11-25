@@ -1,0 +1,48 @@
+vismod: "0.1"
+id: checkout-discount
+name: Checkout Discount Logic
+description: Determines which discount applies to a customer's cart during checkout.
+visibility: admin
+entry: check_membership
+
+steps:
+  - id: check_membership
+    type: decision
+    label: Is Premium Member?
+    handler: isPremiumMember
+    branches:
+      "true": apply_member_discount
+      "false": check_promo_code
+
+  - id: apply_member_discount
+    type: action
+    label: Apply 15% Member Discount
+    handler: applyPercentDiscount
+    params:
+      percent: 15
+    next: finalize_total
+
+  - id: check_promo_code
+    type: decision
+    label: Has Valid Promo Code?
+    handler: hasValidPromoCode
+    branches:
+      "true": apply_promo_discount
+      "false": finalize_total
+
+  - id: apply_promo_discount
+    type: action
+    label: Apply Promo Discount
+    handler: applyPromoDiscount
+    next: finalize_total
+
+  - id: finalize_total
+    type: end
+    label: Calculate Final Total
+    handler: calculateFinalTotal
+
+metadata:
+  owner: commerce-team
+  tags:
+    - pricing
+    - checkout

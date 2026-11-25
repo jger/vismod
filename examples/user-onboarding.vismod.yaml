@@ -1,0 +1,67 @@
+vismod: "0.1"
+id: user-onboarding
+name: User Onboarding Flow
+description: Routes newly signed-up users based on authentication state and subscription tier.
+visibility: public
+entry: check_auth_session
+
+steps:
+  - id: check_auth_session
+    type: decision
+    label: Authenticated?
+    handler: isAuthenticated
+    branches:
+      "true": evaluate_subscription
+      "false": redirect_login
+
+  - id: redirect_login
+    type: end
+    label: Redirect to Login
+    handler: sendToLogin
+
+  - id: evaluate_subscription
+    type: decision
+    label: Subscription Tier
+    handler: getSubscriptionTier
+    branches:
+      free: check_usage_limits
+      pro: grant_full_access
+      enterprise: trigger_sso
+    default: check_usage_limits
+
+  - id: check_usage_limits
+    type: decision
+    label: Within Free Quota?
+    handler: isWithinFreeQuota
+    params:
+      maxApiCalls: 1000
+    branches:
+      "true": grant_standard_access
+      "false": show_upsell
+
+  - id: grant_standard_access
+    type: end
+    label: Grant Standard Access
+    handler: activateStandardWorkspace
+
+  - id: show_upsell
+    type: end
+    label: Prompt Upgrade
+    handler: renderUpgradeModal
+
+  - id: grant_full_access
+    type: end
+    label: Grant Pro Access
+    handler: activateProWorkspace
+
+  - id: trigger_sso
+    type: action
+    label: Provision Enterprise SSO
+    handler: provisionSso
+    next: grant_full_access
+
+metadata:
+  owner: growth-team
+  tags:
+    - onboarding
+    - auth

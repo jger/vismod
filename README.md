@@ -1,3 +1,5 @@
+![VisMod — Visual-Modular Programming](docs/assets/banner.jpg)
+
 # VisMod — Visual-Modular Programming
 
 > *"Caesar's wife must be above suspicion."*
